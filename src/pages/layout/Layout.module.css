@@ -7,5 +7,9 @@
 @media (max-width: 768px) {
   .Layout {
     flex-direction: column;
+    width: 100%;
+  }
+  .responsiveOutlet {
+    display: none;
   }
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import NoteElementCSS from "./NoteElement.module.css";
-function NoteElement({ noteId, Title }) {
+function NoteElement({ noteId, Title, close }) {
   return (
-    <div className={NoteElementCSS.test}>
+    <div onClick={close} className={NoteElementCSS.test}>
       <NavLink
         to={noteId}
         className={({ isActive }) => (isActive ? NoteElementCSS.active : NoteElementCSS.NoteLink)}>

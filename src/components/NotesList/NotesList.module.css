@@ -5,6 +5,7 @@
   flex-direction: column;
   align-content: flex-start;
   justify-items: center;
+  position: relative;
 }
 .heading {
   width: 100%;
@@ -18,12 +19,49 @@
 }
 
 .NotesList {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100%;
   width: 100%;
   overflow-y: scroll;
   scrollbar-gutter: stable;
+}
+.addBtn {
+  position: absolute;
+  width: 20%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  top: 85%;
+  left: 70%;
+  font-weight: 500;
+  background-color: hsla(249, 100%, 27%, 1);
+  color: white;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.btnresponsive {
+  width: 25%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  top: 10%;
+  left: 10%;
+  font-weight: 500;
+}
+
+.toggle {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-items: center;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+  .toggle {
+    display: none !important;
+  }
 }

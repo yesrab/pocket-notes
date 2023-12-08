@@ -1,15 +1,19 @@
 import React from "react";
 import NotesCSS from "./NotesList.module.css";
 import NoteElement from "../NoteTitle/NoteElement";
-function NotesList() {
+function NotesList({ setView, visiblity }) {
+  function handleView() {
+    setView((prev) => !prev);
+  }
+
   return (
-    <div className={NotesCSS.container}>
+    <div className={!visiblity ? NotesCSS.toggle : NotesCSS.container}>
       <div className={NotesCSS.heading}>
         <h1>Pocket Notes</h1>
       </div>
       <div className={NotesCSS.NotesListWrapper}>
         <div className={NotesCSS.NotesList}>
-          <NoteElement noteId={"10"} Title=' 1 awok awok' />
+          <NoteElement close={handleView} noteId={"10"} Title=' 1 awok awok' />
           <NoteElement noteId={"223ds32523534"} Title=' 2 bonk honk' />
           <NoteElement noteId={"12"} Title='3 sure' />
           <NoteElement noteId={"62"} Title='4 yes mam' />
@@ -25,7 +29,7 @@ function NotesList() {
           <NoteElement noteId={"wesazxcdasdq12"} Title='man im geasdasdtting tired of this ' />
         </div>
       </div>
-      {/* <div>+</div> */}
+      <button className={NotesCSS.addBtn}>+</button>
     </div>
   );
 }
