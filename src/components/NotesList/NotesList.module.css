@@ -1,0 +1,26 @@
+.container {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-items: center;
+}
+.heading {
+  width: 100%;
+  height: 20px;
+  text-align: center;
+}
+
+.NotesList {
+  position: relative;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}

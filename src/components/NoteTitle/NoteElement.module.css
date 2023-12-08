@@ -1,0 +1,36 @@
+.NoteLink {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  background-color: white;
+}
+.bubble {
+  width: 15%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aqua;
+  margin-right: 1em;
+  margin-left: 1.5em;
+}
+.active {
+  background-color: hsla(0, 0%, 18%, 0.17);
+  border-radius: 10px;
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.test {
+  width: 100%;
+}
+.ptag {
+  margin: 0;
+}
