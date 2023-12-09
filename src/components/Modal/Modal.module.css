@@ -65,6 +65,7 @@
   aspect-ratio: 1/1;
   background-color: hsla(262, 92%, 76%, 1);
   cursor: pointer;
+  border: none;
 }
 .pink {
   background-color: hsla(306, 100%, 74%, 1);
@@ -104,12 +105,20 @@
   border-radius: 1em;
   background-color: hsla(227, 100%, 27%, 1);
 }
+.colorWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 70%;
+  height: 100%;
+}
 
 @media (max-width: 768px) {
   .container {
     margin: 0;
     position: fixed;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     border: none;
@@ -133,7 +142,11 @@
   }
 
   .colorBubbles {
-    width: 5%;
+    width: 20%;
+  }
+
+  .colorBubbles:focus {
+    width: 25%;
   }
 
   .buttonWrapper {
@@ -143,16 +156,27 @@
   .buttonWrapper button {
     width: 25%;
   }
-
+  .inputRegion {
+    flex-direction: column;
+    gap: 10px;
+  }
   .inputRegion input {
-    width: 50%;
+    width: 70%;
   }
 
   .colorSelection {
-    flex-wrap: wrap;
+    flex-direction: column;
+    height: 40%;
+    margin: 0;
+    gap: 0;
   }
-
+  .colorWrapper {
+    height: 90%;
+  }
   .colorSelection p {
-    font-size: 11px;
+    margin-top: 1em;
+    margin-bottom: 0;
+    font-size: 15px;
+    font-weight: 500;
   }
 }

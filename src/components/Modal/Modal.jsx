@@ -17,19 +17,26 @@ function Modal({ open, trigModal }) {
   }
 
   const handleSubmit = () => {
-    console.log("title nature:", Boolean(title.length));
-    console.log("color nature:", Boolean(color.length));
     if (!title.length || !color.length) {
       console.log("title inside IF nature:", Boolean(title.length));
       console.log("color inside IF nature:", Boolean(color.length));
       console.log("no no... cant go!");
       return;
     }
+    const duplicates = notesGroups.map((groups) => {
+      if (groups.title === title.trim()) {
+        return true;
+      }
+      return false;
+    });
+    if (duplicates.includes(true)) {
+      return;
+    }
     dispatch({
       type: "ADD_GROUP",
       payload: [
         {
-          title: title,
+          title: title.trim(),
           color: color,
           epoch: Math.floor(new Date().getTime() / 1000.0),
           notes: [],
@@ -49,49 +56,57 @@ function Modal({ open, trigModal }) {
         <h4>Create New group</h4>
         <div className={ModalCSS.inputRegion}>
           <label>Group Name</label>{" "}
-          <input type='text' value={title} onChange={valueChange} placeholder='Enter group name' />
+          <input
+            autoFocus={true}
+            type='text'
+            value={title}
+            onChange={valueChange}
+            placeholder='Enter group name'
+          />
         </div>
         <div className={ModalCSS.colorSelection}>
           <p>Choose colour</p>
-          <button
-            onClick={() => {
-              setColor("hsla(262, 92%, 76%, 1)");
-            }}
-            className={ModalCSS.colorBubbles}
-          />
-          <button
-            onClick={() => {
-              setColor("hsla(306, 100%, 74%, 1)");
-            }}
-            className={`${ModalCSS.colorBubbles} ${ModalCSS.pink}`}
-          />
+          <div className={ModalCSS.colorWrapper}>
+            <button
+              onClick={() => {
+                setColor("hsla(262, 92%, 76%, 1)");
+              }}
+              className={ModalCSS.colorBubbles}
+            />
+            <button
+              onClick={() => {
+                setColor("hsla(306, 100%, 74%, 1)");
+              }}
+              className={`${ModalCSS.colorBubbles} ${ModalCSS.pink}`}
+            />
 
-          <button
-            onClick={() => {
-              setColor("hsla(187, 97%, 63%, 1)");
-            }}
-            className={`${ModalCSS.colorBubbles} ${ModalCSS.cyan}`}
-          />
-          <button
-            onClick={() => {
-              setColor("hsla(15, 81%, 70%, 1)");
-            }}
-            className={`${ModalCSS.colorBubbles} ${ModalCSS.brown}`}
-          />
+            <button
+              onClick={() => {
+                setColor("hsla(187, 97%, 63%, 1)");
+              }}
+              className={`${ModalCSS.colorBubbles} ${ModalCSS.cyan}`}
+            />
+            <button
+              onClick={() => {
+                setColor("hsla(15, 81%, 70%, 1)");
+              }}
+              className={`${ModalCSS.colorBubbles} ${ModalCSS.brown}`}
+            />
 
-          <button
-            onClick={() => {
-              setColor("hsla(223, 100%, 50%, 1)");
-            }}
-            className={`${ModalCSS.colorBubbles} ${ModalCSS.royalBlue}`}
-          />
+            <button
+              onClick={() => {
+                setColor("hsla(223, 100%, 50%, 1)");
+              }}
+              className={`${ModalCSS.colorBubbles} ${ModalCSS.royalBlue}`}
+            />
 
-          <button
-            onClick={() => {
-              setColor("hsla(223, 100%, 70%, 1)");
-            }}
-            className={`${ModalCSS.colorBubbles} ${ModalCSS.lightBlue}`}
-          />
+            <button
+              onClick={() => {
+                setColor("hsla(223, 100%, 70%, 1)");
+              }}
+              className={`${ModalCSS.colorBubbles} ${ModalCSS.lightBlue}`}
+            />
+          </div>
         </div>
 
         <div className={ModalCSS.buttonWrapper}>
