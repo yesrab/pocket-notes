@@ -157,11 +157,13 @@
     width: 25%;
   }
   .inputRegion {
+    height: 25%;
     flex-direction: column;
-    gap: 10px;
+    gap: 2px;
   }
   .inputRegion input {
     width: 70%;
+    height: 90%;
   }
 
   .colorSelection {

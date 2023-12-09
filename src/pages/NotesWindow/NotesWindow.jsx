@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useParams, useNavigate } from "react-router-dom";
 import NoteWindowCSS from "./NotesWindow.module.css";
 import NoteCard from "../../components/NoteCard/NoteCard";
 import NotesContext from "../../context/notesContext";
@@ -9,7 +9,7 @@ function NotesWindow({ setView }) {
   const { notesGroups, dispatch } = useContext(NotesContext);
   const note = notesGroups?.find((item) => item.epoch === +id);
   const [textareaContent, setTextareaContent] = useState("");
-
+  const nav = useNavigate();
   const iconStyle = {
     backgroundColor: note?.color,
     height: "85%",
@@ -79,6 +79,7 @@ function NotesWindow({ setView }) {
       <header className={NoteWindowCSS.head}>
         <div
           onClick={() => {
+            nav("/");
             setView(true);
           }}
           className={NoteWindowCSS.backArrow}>
