@@ -21,7 +21,7 @@
 .NotesList {
   height: 100%;
   width: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   scrollbar-gutter: stable;
   scrollbar-width: 5px;
   scrollbar-track-color: hsla(0, 0%, 85%, 1);
