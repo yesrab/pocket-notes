@@ -11,7 +11,7 @@ function NoteCard({ body, time }) {
     const minutes = date.getMinutes();
     const ampm = hours >= 12 ? "PM" : "AM";
 
-    const formattedDate = `${day} ${month} ${year} \u00b7 ${hours % 12 || 12}:${
+    const formattedDate = `${day} ${month} ${year} • ${hours % 12 || 12}:${
       minutes < 10 ? "0" : ""
     }${minutes} ${ampm}`;
     return formattedDate;
