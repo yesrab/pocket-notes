@@ -27,7 +27,7 @@ function NotesList({ setView, visiblity, trigModal }) {
                 />
               </div>
             );
-          })}
+          }).sort((a, b) => +b.key - +a.key)}
         </div>
       </div>
       <button onClick={trigModal} className={NotesCSS.addBtn}>
