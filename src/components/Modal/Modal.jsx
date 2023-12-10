@@ -16,6 +16,14 @@ function Modal({ open, trigModal }) {
     setTitle(e.target.value);
   }
 
+
+  const disabled = {
+    cursor: "not-allowed",
+  };
+  const enabled = {
+    cursor: "pointer",
+  };
+  
   const handleSubmit = () => {
     if (!title.length || !color.length) {
       console.log("title inside IF nature:", Boolean(title.length));
@@ -110,7 +118,13 @@ function Modal({ open, trigModal }) {
         </div>
 
         <div className={ModalCSS.buttonWrapper}>
-          <button onClick={handleSubmit}>Create</button>
+          <button style={
+              !title.length ||
+              !color.length ||
+              notesGroups.map((groups) => groups.title === title.trim()).includes(true)
+                ? disabled
+                : enabled
+            } onClick={handleSubmit}>Create</button>
         </div>
       </dialog>
     </>,
