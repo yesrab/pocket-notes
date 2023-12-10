@@ -6,6 +6,7 @@ function NoteElement({ noteId, Title, close, color }) {
 
   const bubbleColor = {
     backgroundColor: color,
+    color: "white",
   };
 
   function initials(string) {
