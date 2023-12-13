@@ -32,7 +32,7 @@ function NotesWindow({ setView }) {
 
   const notesByGroup = notesGroups?.find((item) => item.epoch === +id);
   const notesArray = notesByGroup?.notes;
-  const decending = notesArray?.sort((a, b) => b.epoch - a.epoch);
+  const decending = notesArray?.sort((a, b) => a.epoch - b.epoch);
   const NoteElementCards = decending?.map((item) => {
     return <NoteCard key={item.epoch} body={item.body} time={item.epoch} />;
   });
@@ -43,7 +43,9 @@ function NotesWindow({ setView }) {
 
   useEffect(() => {
     setTextareaContent("");
-  }, [id]);
+    const scrollElement = document.getElementById("autoScroll");
+    scrollElement.scrollTop = scrollElement?.scrollHeight;
+  }, [id, notesArray]);
 
   const isTextareaEmpty = textareaContent.trim() === "";
 
@@ -51,15 +53,20 @@ function NotesWindow({ setView }) {
     if (isTextareaEmpty) {
       return;
     }
-    console.log(textareaContent);
+
     dispatch({
       type: "ADD_NOTE",
       payload: {
         epoch: id,
-        newNote: { body: textareaContent, epoch: Math.floor(new Date().getTime() / 1000.0) },
+        newNote: {
+          body: textareaContent,
+          epoch: Math.floor(new Date().getTime() / 1000.0),
+        },
       },
     });
     setTextareaContent("");
+    // const scrollElement = document.getElementById("autoScroll");
+    // scrollElement.scrollTop = scrollElement?.scrollHeight;
   }
 
   function initials(string) {
@@ -88,7 +95,9 @@ function NotesWindow({ setView }) {
         <div style={iconStyle}>{initials(note?.title)}</div>
         <h4>{note?.title}</h4>
       </header>
-      <div className={NoteWindowCSS.container}>{NoteElementCards}</div>
+      <div id='autoScroll' className={NoteWindowCSS.container}>
+        {NoteElementCards}
+      </div>
       <footer className={NoteWindowCSS.foot}>
         <div className={NoteWindowCSS.textBlock}>
           <textarea

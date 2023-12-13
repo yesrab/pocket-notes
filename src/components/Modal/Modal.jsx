@@ -16,19 +16,19 @@ function Modal({ open, trigModal }) {
     setTitle(e.target.value);
   }
 
-
   const disabled = {
     cursor: "not-allowed",
   };
   const enabled = {
     cursor: "pointer",
   };
-  
+
   const handleSubmit = () => {
     if (!title.length || !color.length) {
-      console.log("title inside IF nature:", Boolean(title.length));
-      console.log("color inside IF nature:", Boolean(color.length));
-      console.log("no no... cant go!");
+      // console.log("title inside IF nature:", Boolean(title.length));
+      // console.log("color inside IF nature:", Boolean(color.length));
+      // console.log("no no... cant go!");
+      alert("Both Notes group name and group color are required");
       return;
     }
     const duplicates = notesGroups.map((groups) => {
@@ -38,6 +38,8 @@ function Modal({ open, trigModal }) {
       return false;
     });
     if (duplicates.includes(true)) {
+      alert("A note with the same name already exists ");
+
       return;
     }
     dispatch({
@@ -118,13 +120,19 @@ function Modal({ open, trigModal }) {
         </div>
 
         <div className={ModalCSS.buttonWrapper}>
-          <button style={
+          <button
+            style={
               !title.length ||
               !color.length ||
-              notesGroups.map((groups) => groups.title === title.trim()).includes(true)
+              notesGroups
+                .map((groups) => groups.title === title.trim())
+                .includes(true)
                 ? disabled
                 : enabled
-            } onClick={handleSubmit}>Create</button>
+            }
+            onClick={handleSubmit}>
+            Create
+          </button>
         </div>
       </dialog>
     </>,
