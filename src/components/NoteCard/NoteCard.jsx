@@ -1,9 +1,9 @@
 import React from "react";
 import NoteCardCSS from "./NoteCard.module.css";
 function NoteCard({ body, time }) {
+  //get the note time stamp from the stored time of the note
   function formatEpochToDateString(epoch) {
     const date = new Date(epoch * 1000);
-
     const day = date.getDate();
     const month = date.toLocaleString("default", { month: "short" });
     const year = date.getFullYear();

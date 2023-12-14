@@ -25,9 +25,7 @@ function Modal({ open, trigModal }) {
 
   const handleSubmit = () => {
     if (!title.length || !color.length) {
-      // console.log("title inside IF nature:", Boolean(title.length));
-      // console.log("color inside IF nature:", Boolean(color.length));
-      // console.log("no no... cant go!");
+      //alert for insufficient requirments
       alert("Both Notes group name and group color are required");
       return;
     }
@@ -38,6 +36,7 @@ function Modal({ open, trigModal }) {
       return false;
     });
     if (duplicates.includes(true)) {
+      //alert for duplicate checking
       alert("A note with the same name already exists ");
 
       return;
@@ -58,7 +57,7 @@ function Modal({ open, trigModal }) {
   };
 
   // console.log(Math.floor(new Date().getTime() / 1000.0));
-
+  //use portal to apper above every element on the painted dom
   return ReactDOM.createPortal(
     <>
       <div onClick={trigModal} className={ModalCSS.overlay} />

@@ -11,7 +11,9 @@ import NotesWindow from "./pages/NotesWindow/NotesWindow";
 import NotFound from "./pages/NotFound";
 import { useState } from "react";
 function App() {
+  //responsive layout toggle ie toggles a css classNames
   const [view, setView] = useState(false);
+  //react router setup
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -27,4 +29,3 @@ function App() {
 }
 
 export default App;
-

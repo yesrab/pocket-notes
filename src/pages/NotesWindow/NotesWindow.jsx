@@ -5,8 +5,11 @@ import NoteCard from "../../components/NoteCard/NoteCard";
 import NotesContext from "../../context/notesContext";
 
 function NotesWindow({ setView }) {
+  //get the url parameters
   const { id } = useParams();
+  //get context
   const { notesGroups, dispatch } = useContext(NotesContext);
+  //get the selcted notes groupe from the stored notes from the context
   const note = notesGroups?.find((item) => item.epoch === +id);
   const [textareaContent, setTextareaContent] = useState("");
   const nav = useNavigate();
@@ -43,6 +46,7 @@ function NotesWindow({ setView }) {
 
   useEffect(() => {
     setTextareaContent("");
+    //scroll the document whenever the component loads and scroll everytime a new note is added
     const scrollElement = document.getElementById("autoScroll");
     scrollElement.scrollTop = scrollElement?.scrollHeight;
   }, [id, notesArray]);
@@ -53,7 +57,8 @@ function NotesWindow({ setView }) {
     if (isTextareaEmpty) {
       return;
     }
-
+    //dispatcher for adding note
+    //match the group from the url params and edit its notes array
     dispatch({
       type: "ADD_NOTE",
       payload: {
@@ -68,7 +73,7 @@ function NotesWindow({ setView }) {
     // const scrollElement = document.getElementById("autoScroll");
     // scrollElement.scrollTop = scrollElement?.scrollHeight;
   }
-
+  //get the initials for the bubble
   function initials(string) {
     const words = string?.split(" ");
     let initials = "";

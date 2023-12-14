@@ -2,8 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import NoteElementCSS from "./NoteElement.module.css";
 function NoteElement({ noteId, Title, close, color }) {
-  //<div className={NoteElementCSS.test}>
-
+  //all the note group titles
   const bubbleColor = {
     backgroundColor: color,
     color: "white",
