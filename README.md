@@ -1,8 +1,22 @@
-# React + Vite
+# Pocket Notes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A pocket note taking app based on React js
 
-Currently, two official plugins are available:
+- note grouping
+- Responsive design
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Dependencies
+
+- React
+- React-router-dom
+
+## BUILDING
+
+Requirments are Node v20.9.0
+
+```
+git clone https://github.com/yesrab/pocket-notes.git
+cd pocket-notes
+yarn
+yarn dev
+```
