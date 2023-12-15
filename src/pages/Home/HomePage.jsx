@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import HomeCSS from "./Home.module.css";
-import homePageArtWork from "../assets/homeImage.svg";
+import homePageArtWork from "../../assets/homeImage.svg";
 function HomePage({ setView }) {
   //toggle the view on component mount so that back button on mobile devices work as intended
   useEffect(() => {

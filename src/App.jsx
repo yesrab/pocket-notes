@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import {
   createBrowserRouter,
   Route,
@@ -6,10 +7,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Layout from "./pages/layout/Layout";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/Home/HomePage";
 import NotesWindow from "./pages/NotesWindow/NotesWindow";
-import NotFound from "./pages/NotFound";
-import { useState } from "react";
+import NotFound from "./pages/Error/NotFound";
 function App() {
   //responsive layout toggle ie toggles a css classNames
   const [view, setView] = useState(false);
