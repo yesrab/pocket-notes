@@ -23,4 +23,13 @@ h4 {
 }
 .back a {
   color: white;
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .back {
+    width: 30%;
+    height: 5%;
+  }
 }
